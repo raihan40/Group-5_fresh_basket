@@ -1,0 +1,142 @@
+<!------------------------ Declarations -----------------------
+    A. Customer Login Form -
+        Input Names :
+            1. "phone"
+			2. "password"
+
+        Button Names :
+            1. "customer-login"
+
+    B. Area Stock Manager Login Form -
+        Input Names :
+            1. "pincode"
+			2. "password"
+
+        Button Names :
+            1. "areaStockManager-login"
+
+	B. Stock Manager Login Form -
+		Input Names :
+			1. "sm_id"
+			2. "password"
+
+		Button Names :
+			1. "stockManager-login"
+--------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to FreshBasket</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/x-icon" href="imgs/favicon.png">
+</head>
+</head>
+<body>
+    <header>
+        <hi class="logo">FreshBasKet</hi>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <nav>
+            <ul>
+				<li><a href="#" class="active-link">Home</a></li>
+                <li><a href="frontend/customer_registration.php">Sign Up</a></li>
+                <li><a href="frontend/maintenance.php">About</a></li>
+                <li><a href="frontend/maintenance.php">Contact Us</a></li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-lable"> 
+            <span></span>
+        </label>
+    </header>
+
+    <main>
+        <section class = "section-home">
+			<div class="home">
+				<div class="home-text">
+					<h1>Shop Fresh with<br> FreshBasKet!</h1>
+					<div class="home-btn">
+						<button type="submit" name="customerLoginbtn" onclick="redirectCustomer()" class="btn btn-home-login" id="buttonCustomer">Customer</button>
+                        <a href="frontend/maintenance.php" name="adminLoginbtn"  class="btn btn-home-login" id="buttonAdmin">Administrator</a>
+                        <button type="submit" name="stockManagerLoginbtn" onclick="redirectStockManager()" class="btn btn-home-login" id="buttonStockManager">Stock Manager</button>
+						<button type="submit" name="areaStockManagerLoginbtn" onclick="redirectAreaStockManager()" class="btn btn-home-login" id="buttonAreaStockManager">Area Stock Manager</button>
+                        <a href="frontend/maintenance.php" name="deliveryManagerLoginbtn"  class="btn btn-home-login" id="buttonDeliveryManager">Delivery Manager</a>
+                        <a href="frontend/maintenance.php" name="deliveryAreaManagerLoginbtn"  class="btn btn-home-login" id="buttonAreaDeliveryManager">Area Delivery Manager</a>
+                    </div>
+				</div>
+			</div>
+		</section>
+
+        <section>
+			<div class="container">
+
+				<!------------------  Customer Login Form -------------------->
+				<div class="bg-modal">
+					<div class="modal-content">
+						<div class="close">+</div>
+						<h2>Welcome Back!</h2>
+						<!-------------------- Add form address here --------------->
+						<form action="backend/customer_login.php" method="POST" class="log-control">
+							<div class="form-col">
+								<label class="log-label">Email Id. / Phone No.</label>
+								<input type="text" name="phone" class="log-input" value="" placeholder="Enter Email Id. / Phone No." required/>
+							</div>
+							<div class="form-col">
+								<label class="log-label">Password</label>
+								<input type="password" name="password" class="log-input" min="1" value="" placeholder="Enter Password" required/>
+							</div>
+							<button type="submit" name="customer-login" class="btn btn-login">Log In</button>
+							<a href="frontend/customer_registration.php" class="btn btn-register">Register</a>
+						</form>
+					</div>
+				</div>
+				
+				<!------------------  Area Stock Manager Login Form -------------------->
+				<div class="bg-modal bg-modal-employee">
+					<div class="modal-content modal-content-employee">
+						<div class="close close-employee">+</div>
+						<h2>Welcome Employee!</h2>
+						<!-------------------- Add form address here ------------------>
+						<form action="backend\area_stock_manager_login.php" method="POST" class="log-control">
+							<div class="form-col">
+								<label class="log-label">Pincode</label>
+								<input type="number" name="pincode" class="log-input" value="" placeholder="Enter Area Pincode" required/>
+							</div>
+							<div class="form-col">
+								<label class="log-label">Password</label>
+								<input type="password" name="password" class="log-input" min="1" value="" placeholder="Enter Password" required/>
+							</div>
+							<button type="submit" name="areaStockManager-login" class="btn btn-login btn-login-employee">Log In</button>
+						</form>
+					</div>
+				</div>
+
+				<!------------------  Stock Manager Login Form -------------------->
+				<div class="bg-modal bg-modal-manager">
+					<div class="modal-content modal-content-manager">
+						<div class="close close-manager">+</div>
+						<h2>Welcome Manager!</h2>
+						<!-------------------- Add form address here ------------------>
+						<form action="backend\stock_manager_login.php" method="POST" class="log-control">
+							<div class="form-col">
+								<label class="log-label">Id.</label>
+								<input type="number" name="sm_id" class="log-input" value="" placeholder="Enter Id." required/>
+							</div>
+							<div class="form-col">
+								<label class="log-label">Password</label>
+								<input type="password" name="password" class="log-input" min="1" value="" placeholder="Enter Password" required/>
+							</div>
+							<button type="submit" name="stockManager-login" class="btn btn-login btn-login-manager">Log In</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<hr>
+
+    </main>
+    
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
